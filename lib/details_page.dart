@@ -67,13 +67,13 @@ class _DetailsPageState extends State<DetailsPage> {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10.0),
               child: Text(
                   "Lorem ipsum dolor sit amet consectetur adipisicing elit. "
                   "Maxime mollitia, molestiae quas vel sint commodi repudiandae"
                   " consequuntur voluptatum laborum numquam blanditiis harum quisquam eius "
-                  "sed odit fugiat iusto fuga praesentium optio, eaque rerum!"
+                  "sed oddity fugit iusto fuga praesentium optio, eaque rerun!"
                   " Provident similique accusantium nemo autem. "
                   "Veritatis obcaecati tenetur iure eius earum ut molestias"
                   " architecto voluptate aliquam nihil, eveniet aliquid "

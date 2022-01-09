@@ -11,6 +11,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final GlobalKey _listKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     var h = MediaQuery.of(context).size.height;
@@ -42,8 +44,9 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-              Expanded(
+              Flexible(
                 child: ListView.builder(
+                    key: _listKey,
                     itemCount: 100,
                     itemBuilder: (context, index) {
                       return Padding(
