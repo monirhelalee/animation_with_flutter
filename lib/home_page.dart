@@ -19,56 +19,61 @@ class _HomePageState extends State<HomePage> {
     var w = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
-        body: Container(
-          child: Column(
-            children: [
-              Container(
-                height: h * .2,
-                width: w,
-                color: Colors.teal,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Text(
-                        "Animated App",
-                        style: GoogleFonts.poppins(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                          color: Colors.white,
-                        ),
+        body: Column(
+          children: [
+            Container(
+              height: h * .2,
+              width: w,
+              color: Colors.teal,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Text(
+                      "Animated App",
+                      style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        color: Colors.white,
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-              Flexible(
-                child: ListView.builder(
-                    key: _listKey,
-                    itemCount: 100,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding:
-                            EdgeInsets.only(bottom: 5, top: index == 0 ? 5 : 0),
-                        child: InkWell(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const DetailsPage()));
-                          },
-                          child: Container(
-                            height: h * .1,
-                            color: Colors.grey.shade300,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsets.only(left: h * .01),
+            ),
+            Flexible(
+              child: ListView.builder(
+                  key: _listKey,
+                  itemCount: 30,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding:
+                          EdgeInsets.only(bottom: 5, top: index == 0 ? 5 : 0),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => DetailsPage(
+                                index: index,
+                              ),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          height: h * .1,
+                          color: Colors.grey.shade300,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.only(left: h * .01),
+                                    child: Hero(
+                                      tag: "hero$index",
                                       child: Container(
                                         height: h * .08,
                                         width: h * .08,
@@ -78,45 +83,44 @@ class _HomePageState extends State<HomePage> {
                                                 BorderRadius.circular(10)),
                                       ),
                                     ),
-                                    const SizedBox(
-                                      width: 10,
-                                    ),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          "Title",
-                                          style: GoogleFonts.poppins(
-                                            fontSize: 15,
-                                            fontWeight: FontWeight.bold,
-                                          ),
+                                  ),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        "Title $index",
+                                        style: GoogleFonts.poppins(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.bold,
                                         ),
-                                        const Text("Address"),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(right: 20),
-                                  child: Text(
-                                    "price",
-                                    style: GoogleFonts.poppins(
-                                      fontSize: 12,
-                                    ),
+                                      ),
+                                      Text("Address $index"),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(right: 20),
+                                child: Text(
+                                  "price $index",
+                                  style: GoogleFonts.poppins(
+                                    fontSize: 12,
                                   ),
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         ),
-                      );
-                    }),
-              ),
-            ],
-          ),
+                      ),
+                    );
+                  }),
+            ),
+          ],
         ),
       ),
     );

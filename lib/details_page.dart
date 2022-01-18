@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DetailsPage extends StatefulWidget {
-  const DetailsPage({Key? key}) : super(key: key);
+  int index;
+  DetailsPage({required this.index});
 
   @override
   _DetailsPageState createState() => _DetailsPageState();
@@ -33,9 +34,12 @@ class _DetailsPageState extends State<DetailsPage> {
         ),
         body: Column(
           children: [
-            Container(
-              height: h * .45,
-              color: Colors.yellow,
+            Hero(
+              tag: "hero${widget.index}",
+              child: Container(
+                height: h * .45,
+                color: Colors.yellow,
+              ),
             ),
             Padding(
               padding:
